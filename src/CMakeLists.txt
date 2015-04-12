@@ -9,4 +9,3 @@ add_library(${LIBRARY_NAME} SHARED ${SRC_LIST})
 
 install(FILES light_skip_list.h DESTINATION include)
 install(TARGETS ${LIBRARY_NAME} LIBRARY DESTINATION lib)
-
