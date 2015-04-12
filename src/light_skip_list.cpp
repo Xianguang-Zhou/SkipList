@@ -14,4 +14,28 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+#include <typeinfo>
 #include "light_skip_list.h"
+
+class SkipListNode {
+};
+
+class SkipListLevelNode: public SkipListNode {
+public:
+	SkipListLevelNode * next;
+	SkipListLevelNode * down;
+};
+
+class SkipListDataNode: public SkipListLevelNode {
+public:
+	std::string key;
+	std::string value;
+};
+
+class SkipListBeginNode: public SkipListNode {
+
+};
+
+class SkipListEndNode: public SkipListNode {
+
+};
