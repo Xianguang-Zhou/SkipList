@@ -19,23 +19,48 @@
 
 class SkipListNode {
 };
-
+class SkipListDataNode;
 class SkipListLevelNode: public SkipListNode {
 public:
-	SkipListLevelNode * next;
+	SkipListNode * next;
 	SkipListLevelNode * down;
+	SkipListDataNode * data;
 };
-
-class SkipListDataNode: public SkipListLevelNode {
+class SkipListDataNode: public SkipListNode {
 public:
 	std::string key;
 	std::string value;
+	SkipListNode * next;
 };
-
 class SkipListBeginNode: public SkipListNode {
-
+public:
+	SkipListNode * next;
+	SkipListBeginNode * down;
 };
-
 class SkipListEndNode: public SkipListNode {
-
 };
+
+SkipList::SkipList() {
+	this->endNode = new SkipListEndNode();
+	this->beginNode = new SkipListBeginNode();
+	this->beginNode->next = this->endNode;
+}
+
+SkipListIter SkipList::put(const std::string& key, const std::string& value) {
+	
+}
+
+SkipListIter SkipList::get(const std::string& key) const {
+}
+
+void SkipList::remove(const std::string& key) {
+}
+
+SkipListIter SkipList::begin() const {
+}
+
+SkipListIter SkipList::end() const {
+}
+
+SkipList::~SkipList() {
+}

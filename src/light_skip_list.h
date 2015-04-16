@@ -21,6 +21,9 @@
 #include <boost/noncopyable.hpp>
 
 class SkipListIter;
+class SkipListBeginNode;
+class SkipListEndNode;
+class SkipListNode;
 
 class SkipList: public boost::noncopyable {
 public:
@@ -32,14 +35,15 @@ public:
 	SkipListIter end() const;
 	virtual ~SkipList();
 private:
+	SkipListBeginNode * beginNode;
+	SkipListEndNode * endNode;
 };
-
-class SkipListNode;
 
 class SkipListIter {
 public:
 	SkipListIter& operator++();
-	std::string operator*() const;
+	std::string key() const;
+	std::string value() const;
 private:
 	SkipListNode * SkipListNode;
 };
